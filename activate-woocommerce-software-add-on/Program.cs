@@ -51,6 +51,8 @@ namespace activate_woocommerce_software_add_on
             try
             {
                 var syncClient = new WebClient();
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 var responseStream = syncClient.DownloadString(url);
                 Console.WriteLine("Response stream:");
                 Console.WriteLine(responseStream); //display the server json response.
